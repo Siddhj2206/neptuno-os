@@ -6,7 +6,7 @@ name: neptuno-os
 description: My personal OS image. Based on Bluefin but with added things such as steam.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/bluefin-dx-hwe
+base-image: ghcr.io/ublue-os/bluefin-dx
 image-version: stable # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
