@@ -3,10 +3,10 @@
 # image will be published to ghcr.io/<user>/<name>
 name: neptuno-os
 # description will be included in the image's metadata
-description: This is my personal OS image. Based on Bluefin but with added things such as steam.
+description: My personal OS image. Based on Bluefin but with added things such as steam.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/bluefin-dx
+base-image: ghcr.io/ublue-os/bluefin-dx-hwe
 image-version: stable # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -37,19 +37,20 @@ modules:
 
         # Extra
         - cloudflare-warp
+        - icoutils
     #remove:
     #packages:
     #- firefox
     #- firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
-  - type: default-flatpaks
-    configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
-        scope: system
-        # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
-          - com.vysp3r.ProtonPlus
-          - com.brave.Browser
-      - scope: user # Also add Flathub user repo, but no user packages
+  # - type: default-flatpaks
+  #   configurations:
+  #     - notify: true # Send notification after install/uninstall is finished (true/false)
+  #       scope: system
+  #       # If no repo information is specified, Flathub will be used by default
+  #       install: # system flatpaks we want all users to have and not remove
+  #         - com.vysp3r.ProtonPlus
+  #         - com.brave.Browser
+  #     - scope: user # Also add Flathub user repo, but no user packages
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
