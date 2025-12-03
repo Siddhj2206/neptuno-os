@@ -38,6 +38,7 @@ modules:
         # Extra
         - cloudflare-warp
         - icoutils
+        - nautilus-python
     #remove:
     #packages:
     #- firefox
